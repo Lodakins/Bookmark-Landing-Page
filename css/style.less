@@ -1,0 +1,154 @@
+@primaryColorSoftBlue:hsl(231, 69%, 60%);
+@primaryColorSoftRed: hsl(0, 94%, 66%);
+@secondaryColorGrayishBlue:hsl(229, 8%, 60%);
+@secondryColorDarkBlue: hsl(229, 31%, 21%);
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+  background: #F6F4E2;
+  font-family: 'Titillium Web', sans-serif;
+  letter-spacing: 1px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.menu-toggle {
+    position: absolute;
+    padding: 0.8em;
+    top: 1em;
+    right: .5em;
+    cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  display: block;
+  background: #EBEBD3;
+  height: 3px;
+  width: 2em;
+  border-radius: 3px;
+  -webkit-transition: all ease-in-out 350ms;
+  transition: all ease-in-out 350ms;
+}
+
+.hamburger::before {
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
+}
+
+.hamburger::after {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+.open .hamburger {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          &::before {
+            display: none;
+          }
+          &::after {
+            -webkit-transform: translateY(-1px) rotate(-90deg);
+                    transform: translateY(-1px) rotate(-90deg);
+          }
+          
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: none;
+        &.opening {
+            display: block;
+            height: 30px;
+        }
+    }
+}
+
+
+nav a {
+  color: @secondryColorDarkBlue;
+  display: block;
+  padding: 1.5em 4em 1.5em 3em;
+  text-transform: uppercase;
+  text-decoration: none;
+    &:hover{
+        color: @primaryColorSoftRed;
+    }
+    &:focus{
+        color: @primaryColorSoftRed;
+    }
+}
+
+@media (min-width: 780px) {
+    .menu-toggle {
+      display: none;
+    }
+  
+  
+  
+    nav ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+    nav li {
+       flex: 1 1 auto;
+       border: none;
+        a {
+            padding: 1.5em 1.3em 1.5em 1.3em;
+            margin: 0;
+            border: none;
+        }
+   }
+  
+     nav li
+  
+  
+  
+    .logo {
+        flex: 0 0 200px;
+        margin: 0;
+        padding-left: 20px;
+    }
+  
+  
+      nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+      }
+    /* nav {
+        flex: 1 1 0;
+        -webkit-clip-path: none;
+              clip-path: none;
+  
+        border: 3px solid purple;
+    }
+  */
+  
+    /*.site-nav a:hover,
+    .site-nav a:focus {
+      background: transparent;
+    }
+  */
+  
+  
+}
